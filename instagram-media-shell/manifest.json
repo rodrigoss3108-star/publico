@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Media Shell",
+  "version": "2.8.1",
+  "description": "Terminal visual que lista stories, destaques, posts e midias do perfil aberto no Instagram.",
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://*.cdninstagram.com/*",
+    "https://*.fbcdn.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Abrir Instagram Media Shell"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ]
+}
